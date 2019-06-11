@@ -1,0 +1,524 @@
+Analysis & Synthesis report for Jogo
+Tue Jun 11 01:23:09 2019
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Topo|Controle:CONTROL|EstadoAtual
+  9. State Machine - |Topo|ButtonSync:BT|btn3state
+ 10. State Machine - |Topo|ButtonSync:BT|btn2state
+ 11. State Machine - |Topo|ButtonSync:BT|btn1state
+ 12. State Machine - |Topo|ButtonSync:BT|btn0state
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Port Connectivity Checks: "ButtonSync:BT"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Jun 11 01:23:09 2019       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; Jogo                                        ;
+; Top-level Entity Name           ; Topo                                        ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 59                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; Topo               ; Jogo               ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
+; Topo.vhd                         ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd       ;         ;
+; ButtonSync.vhd                   ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/ButtonSync.vhd ;         ;
+; Datapath.vhd                     ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd   ;         ;
+; Controle.vhd                     ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd   ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 0              ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 0              ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 0              ;
+;     -- 5 input functions                    ; 0              ;
+;     -- 4 input functions                    ; 0              ;
+;     -- <=3 input functions                  ; 0              ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 59             ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; LEDR[0]~output ;
+; Maximum fan-out                             ; 1              ;
+; Total fan-out                               ; 59             ;
+; Average fan-out                             ; 0.50           ;
++---------------------------------------------+----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |Topo                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 59   ; 0            ; |Topo               ; Topo        ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Topo|Controle:CONTROL|EstadoAtual                                                                                                                       ;
++------------------------+--------------------+------------------------+--------------------+-------------------+------------------+-------------------+-------------------+
+; Name                   ; EstadoAtual.Wait_C ; EstadoAtual.Next_Round ; EstadoAtual.Result ; EstadoAtual.Check ; EstadoAtual.Play ; EstadoAtual.Setup ; EstadoAtual.Start ;
++------------------------+--------------------+------------------------+--------------------+-------------------+------------------+-------------------+-------------------+
+; EstadoAtual.Start      ; 0                  ; 0                      ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ;
+; EstadoAtual.Setup      ; 0                  ; 0                      ; 0                  ; 0                 ; 0                ; 1                 ; 1                 ;
+; EstadoAtual.Play       ; 0                  ; 0                      ; 0                  ; 0                 ; 1                ; 0                 ; 1                 ;
+; EstadoAtual.Check      ; 0                  ; 0                      ; 0                  ; 1                 ; 0                ; 0                 ; 1                 ;
+; EstadoAtual.Result     ; 0                  ; 0                      ; 1                  ; 0                 ; 0                ; 0                 ; 1                 ;
+; EstadoAtual.Next_Round ; 0                  ; 1                      ; 0                  ; 0                 ; 0                ; 0                 ; 1                 ;
+; EstadoAtual.Wait_C     ; 1                  ; 0                      ; 0                  ; 0                 ; 0                ; 0                 ; 1                 ;
++------------------------+--------------------+------------------------+--------------------+-------------------+------------------+-------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |Topo|ButtonSync:BT|btn3state                                                     ;
++-------------------------+------------------------+----------------------+-------------------------+
+; Name                    ; btn3state.EsperaSoltar ; btn3state.SaidaAtiva ; btn3state.EsperaApertar ;
++-------------------------+------------------------+----------------------+-------------------------+
+; btn3state.EsperaApertar ; 0                      ; 0                    ; 0                       ;
+; btn3state.SaidaAtiva    ; 0                      ; 1                    ; 1                       ;
+; btn3state.EsperaSoltar  ; 1                      ; 0                    ; 1                       ;
++-------------------------+------------------------+----------------------+-------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |Topo|ButtonSync:BT|btn2state                                                     ;
++-------------------------+------------------------+----------------------+-------------------------+
+; Name                    ; btn2state.EsperaSoltar ; btn2state.SaidaAtiva ; btn2state.EsperaApertar ;
++-------------------------+------------------------+----------------------+-------------------------+
+; btn2state.EsperaApertar ; 0                      ; 0                    ; 0                       ;
+; btn2state.SaidaAtiva    ; 0                      ; 1                    ; 1                       ;
+; btn2state.EsperaSoltar  ; 1                      ; 0                    ; 1                       ;
++-------------------------+------------------------+----------------------+-------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |Topo|ButtonSync:BT|btn1state                                                     ;
++-------------------------+------------------------+----------------------+-------------------------+
+; Name                    ; btn1state.EsperaSoltar ; btn1state.SaidaAtiva ; btn1state.EsperaApertar ;
++-------------------------+------------------------+----------------------+-------------------------+
+; btn1state.EsperaApertar ; 0                      ; 0                    ; 0                       ;
+; btn1state.SaidaAtiva    ; 0                      ; 1                    ; 1                       ;
+; btn1state.EsperaSoltar  ; 1                      ; 0                    ; 1                       ;
++-------------------------+------------------------+----------------------+-------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |Topo|ButtonSync:BT|btn0state                                                     ;
++-------------------------+------------------------+----------------------+-------------------------+
+; Name                    ; btn0state.EsperaSoltar ; btn0state.SaidaAtiva ; btn0state.EsperaApertar ;
++-------------------------+------------------------+----------------------+-------------------------+
+; btn0state.EsperaApertar ; 0                      ; 0                    ; 0                       ;
+; btn0state.SaidaAtiva    ; 0                      ; 1                    ; 1                       ;
+; btn0state.EsperaSoltar  ; 1                      ; 0                    ; 1                       ;
++-------------------------+------------------------+----------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; ButtonSync:BT|btn3state.SaidaAtiva      ; Lost fanout                            ;
+; ButtonSync:BT|btn3state.EsperaSoltar    ; Lost fanout                            ;
+; ButtonSync:BT|btn3state.EsperaApertar   ; Lost fanout                            ;
+; ButtonSync:BT|btn2state.EsperaSoltar    ; Lost fanout                            ;
+; ButtonSync:BT|btn1state.EsperaSoltar    ; Lost fanout                            ;
+; ButtonSync:BT|btn0state.EsperaSoltar    ; Lost fanout                            ;
+; Controle:CONTROL|EstadoAtual.Check      ; Lost fanout                            ;
+; ButtonSync:BT|btn2state.SaidaAtiva      ; Lost fanout                            ;
+; ButtonSync:BT|btn2state.EsperaApertar   ; Lost fanout                            ;
+; Controle:CONTROL|EstadoAtual.Next_Round ; Stuck at GND due to stuck port data_in ;
+; Controle:CONTROL|EstadoAtual.Wait_C     ; Stuck at GND due to stuck port data_in ;
+; Controle:CONTROL|EstadoAtual.Start      ; Lost fanout                            ;
+; Controle:CONTROL|EstadoAtual.Setup      ; Lost fanout                            ;
+; Controle:CONTROL|EstadoAtual.Play       ; Lost fanout                            ;
+; Controle:CONTROL|EstadoAtual.Result     ; Lost fanout                            ;
+; ButtonSync:BT|btn1state.EsperaApertar   ; Lost fanout                            ;
+; ButtonSync:BT|btn1state.SaidaAtiva      ; Lost fanout                            ;
+; ButtonSync:BT|btn0state.EsperaApertar   ; Lost fanout                            ;
+; ButtonSync:BT|btn0state.SaidaAtiva      ; Lost fanout                            ;
+; Total Number of Removed Registers = 19  ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                    ;
++-----------------------------------------+---------------------------+--------------------------------------------------------------------------+
+; Register name                           ; Reason for Removal        ; Registers Removed due to This Register                                   ;
++-----------------------------------------+---------------------------+--------------------------------------------------------------------------+
+; Controle:CONTROL|EstadoAtual.Next_Round ; Stuck at GND              ; Controle:CONTROL|EstadoAtual.Wait_C, Controle:CONTROL|EstadoAtual.Setup, ;
+;                                         ; due to stuck port data_in ; Controle:CONTROL|EstadoAtual.Play, Controle:CONTROL|EstadoAtual.Result,  ;
+;                                         ;                           ; ButtonSync:BT|btn1state.SaidaAtiva                                       ;
+; ButtonSync:BT|btn3state.SaidaAtiva      ; Lost Fanouts              ; ButtonSync:BT|btn3state.EsperaApertar                                    ;
+; ButtonSync:BT|btn2state.EsperaSoltar    ; Lost Fanouts              ; ButtonSync:BT|btn2state.EsperaApertar                                    ;
+; ButtonSync:BT|btn1state.EsperaSoltar    ; Lost Fanouts              ; ButtonSync:BT|btn1state.EsperaApertar                                    ;
+; ButtonSync:BT|btn0state.EsperaSoltar    ; Lost Fanouts              ; ButtonSync:BT|btn0state.EsperaApertar                                    ;
+; Controle:CONTROL|EstadoAtual.Check      ; Lost Fanouts              ; ButtonSync:BT|btn0state.SaidaAtiva                                       ;
++-----------------------------------------+---------------------------+--------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ButtonSync:BT"                                                                      ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; btn3 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_lcell_comb     ; 1                           ;
+;     normal            ; 1                           ;
+;         0 data inputs ; 1                           ;
+; boundary_port         ; 59                          ;
+;                       ;                             ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Tue Jun 11 01:22:46 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Jogo -c Jogo
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file Decod7seg.vhd
+    Info (12022): Found design unit 1: Decod7seg-decod File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Decod7seg.vhd Line: 10
+    Info (12023): Found entity 1: Decod7seg File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Decod7seg.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file Topo.vhd
+    Info (12022): Found design unit 1: Topo-tp File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 21
+    Info (12023): Found entity 1: Topo File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ButtonSync.vhd
+    Info (12022): Found design unit 1: ButtonSync-ButtonSyncImpl File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/ButtonSync.vhd Line: 15
+    Info (12023): Found entity 1: ButtonSync File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/ButtonSync.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file Datapath.vhd
+    Info (12022): Found design unit 1: Datapath-path File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 35
+    Info (12023): Found entity 1: Datapath File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file FSM_clock.vhd
+    Info (12022): Found design unit 1: FSM_clock-topo_beh File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/FSM_clock.vhd Line: 13
+    Info (12023): Found entity 1: FSM_clock File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/FSM_clock.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Controle.vhd
+    Info (12022): Found design unit 1: Controle-control File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 26
+    Info (12023): Found entity 1: Controle File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file Led.vhd
+    Info (12022): Found design unit 1: Led-led File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Led.vhd Line: 26
+    Info (12023): Found entity 1: Led File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Led.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file DecodBCD.vhd
+    Info (12022): Found design unit 1: DecodBCD-decodB File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/DecodBCD.vhd Line: 12
+    Info (12023): Found entity 1: DecodBCD File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/DecodBCD.vhd Line: 6
+Info (12127): Elaborating entity "Topo" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at Topo.vhd(26): object "bt3" assigned a value but never read File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 26
+Info (12128): Elaborating entity "ButtonSync" for hierarchy "ButtonSync:BT" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 89
+Info (12128): Elaborating entity "Controle" for hierarchy "Controle:CONTROL" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 90
+Warning (10492): VHDL Process Statement warning at Controle.vhd(77): signal "Stop" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 77
+Warning (10492): VHDL Process Statement warning at Controle.vhd(77): signal "end_time_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 77
+Warning (10492): VHDL Process Statement warning at Controle.vhd(79): signal "end_time_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 79
+Warning (10492): VHDL Process Statement warning at Controle.vhd(92): signal "overflow_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at Controle.vhd(92): signal "end_game_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at Controle.vhd(92): signal "win0_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at Controle.vhd(92): signal "win1_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at Controle.vhd(94): signal "overflow_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at Controle.vhd(94): signal "end_game_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at Controle.vhd(94): signal "win0_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at Controle.vhd(94): signal "win1_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 94
+Warning (10631): VHDL Process Statement warning at Controle.vhd(39): inferring latch(es) for signal or variable "ProximoEstado", which holds its previous value in one or more paths through the process File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Wait_C" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Next_Round" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Result" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Check" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Play" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Setup" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Start" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
+Info (12128): Elaborating entity "Datapath" for hierarchy "Datapath:DTPATH" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 91
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(19): used implicit default value for signal "overflow_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 19
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(20): used implicit default value for signal "end_game_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 20
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(21): used implicit default value for signal "end_time_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 21
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(22): used implicit default value for signal "win0_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 22
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(23): used implicit default value for signal "win1_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 23
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(25): used implicit default value for signal "LEDR_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 25
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(26): used implicit default value for signal "HEX5_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 26
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(27): used implicit default value for signal "HEX4_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 27
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(28): used implicit default value for signal "HEX3_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 28
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(29): used implicit default value for signal "HEX2_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 29
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(30): used implicit default value for signal "HEX1_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 30
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(31): used implicit default value for signal "HEX0_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 31
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
+    Warning (13410): Pin "HEX0[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
+Info (17049): 17 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[0]" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 14
+    Warning (15610): No output dependent on input pin "SW[1]" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 14
+    Warning (15610): No output dependent on input pin "CLOCK_50" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 17
+    Warning (15610): No output dependent on input pin "KEY[3]" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 13
+    Warning (15610): No output dependent on input pin "KEY[2]" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 13
+    Warning (15610): No output dependent on input pin "KEY[1]" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 13
+    Warning (15610): No output dependent on input pin "KEY[0]" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 13
+Info (21057): Implemented 59 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 52 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 87 warnings
+    Info: Peak virtual memory: 1000 megabytes
+    Info: Processing ended: Tue Jun 11 01:23:09 2019
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:45
+
+
