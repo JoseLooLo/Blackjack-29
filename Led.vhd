@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity Led is port (
-	SEL_Led: in std_logic_vector(1 downto 0);
+	SEL: in std_logic_vector(1 downto 0);
 	--Variaveis precisam passar pelo decodificador
 	Time_Led: in std_logic_vector(3 downto 0);
 	HexSeq: in std_logic_vector(3 downto 0);
@@ -13,13 +13,13 @@ entity Led is port (
 	U1_Point: in std_logic_vector(4 downto 0);
 	
 	
-	LEDR_Led: out std_logic_vector(9 downto 0);
-	HEX5_Led: out std_logic_vector(6 downto 0);
-	HEX4_Led: out std_logic_vector(6 downto 0);
-	HEX3_Led: out std_logic_vector(6 downto 0);
-	HEX2_Led: out std_logic_vector(6 downto 0);
-	HEX1_Led: out std_logic_vector(6 downto 0);
-	HEX0_Led: out std_logic_vector(6 downto 0)
+	LEDR: out std_logic_vector(9 downto 0);
+	HEX5: out std_logic_vector(6 downto 0);
+	HEX4: out std_logic_vector(6 downto 0);
+	HEX3: out std_logic_vector(6 downto 0);
+	HEX2: out std_logic_vector(6 downto 0);
+	HEX1: out std_logic_vector(6 downto 0);
+	HEX0: out std_logic_vector(6 downto 0)
 );
 end Led;
 
@@ -63,33 +63,33 @@ Begin
 	U2L2: Decod7seg port map (U1_PointBCD(3 downto 0), U1_PointLED_2);
 
 	--Atualiza o LEDR com o tempo
-	LEDR_Led <= "00000"&Time_Led;
+	LEDR <= "000000"&Time_Led;
 	
 	--Atualiza os HEX
-	HEX5_Led <= "1111111" when SEL_Led = "00" else
-				"1000111" when SEL_Led = "01" else
-				HexSeqLED when SEL_Led = "10" else
-				"1100001" when SEL_Led = "11";
+	HEX5 <= "1111111" when SEL = "00" else
+				"1000111" when SEL = "01" else
+				HexSeqLED when SEL = "10" else
+				"1100001" when SEL = "11";
 			
-	HEX4_Led <= "0010010" when SEL_Led = "00" else
-				"0000110" when SEL_Led = "01" else
-				RoundLED when SEL_Led = "10" else
-				Win1LED when SEL_Led = "11";
+	HEX4 <= "0010010" when SEL = "00" else
+				"0000110" when SEL = "01" else
+				RoundLED when SEL = "10" else
+				Win1LED when SEL = "11";
 				
-	HEX3_Led <= "0000111" when SEL_Led = "00" else
-				"1100011" when SEL_Led = "01" else
+	HEX3 <= "0000111" when SEL = "00" else
+				"1100011" when SEL = "01" else
 				U0_PointLED_1;
 				
-	HEX2_Led <= "0001000" when SEL_Led = "00" else
-				"0000110" when SEL_Led = "01" else
+	HEX2 <= "0001000" when SEL = "00" else
+				"0000110" when SEL = "01" else
 				U0_PointLED_2;
 				
-	HEX1_Led <= "0101111" when SEL_Led = "00" else
-				"1000111" when SEL_Led = "01" else
+	HEX1 <= "0101111" when SEL = "00" else
+				"1000111" when SEL = "01" else
 				U1_PointLED_1;
 				
-	HEX0_Led <= "0000111" when SEL_Led = "00" else
-				LevelLED when SEL_Led = "01" else
+	HEX0 <= "0000111" when SEL = "00" else
+				LevelLED when SEL = "01" else
 				U1_PointLED_2;
 				
 end led;

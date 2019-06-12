@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Jogo
-Tue Jun 11 01:23:09 2019
+Tue Jun 11 23:46:35 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -18,13 +18,18 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  10. State Machine - |Topo|ButtonSync:BT|btn2state
  11. State Machine - |Topo|ButtonSync:BT|btn1state
  12. State Machine - |Topo|ButtonSync:BT|btn0state
- 13. Registers Removed During Synthesis
- 14. Removed Registers Triggering Further Register Optimizations
- 15. General Register Statistics
- 16. Port Connectivity Checks: "ButtonSync:BT"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+ 13. User-Specified and Inferred Latches
+ 14. Registers Removed During Synthesis
+ 15. Removed Registers Triggering Further Register Optimizations
+ 16. General Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Port Connectivity Checks: "Datapath:DTPATH|Led:L1"
+ 19. Port Connectivity Checks: "Datapath:DTPATH|Counter_point:CP1"
+ 20. Port Connectivity Checks: "Datapath:DTPATH|Counter_point:CP0"
+ 21. Port Connectivity Checks: "ButtonSync:BT"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
 
 
 
@@ -50,13 +55,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Jun 11 01:23:09 2019       ;
+; Analysis & Synthesis Status     ; Successful - Tue Jun 11 23:46:35 2019       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; Jogo                                        ;
 ; Top-level Entity Name           ; Topo                                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 0                                           ;
+; Total registers                 ; 144                                         ;
 ; Total pins                      ; 59                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -166,59 +171,75 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                         ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
-; Topo.vhd                         ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd       ;         ;
-; ButtonSync.vhd                   ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/ButtonSync.vhd ;         ;
-; Datapath.vhd                     ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd   ;         ;
-; Controle.vhd                     ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd   ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                 ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
+; Decod7seg.vhd                    ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd     ;         ;
+; Topo.vhd                         ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd          ;         ;
+; ButtonSync.vhd                   ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/ButtonSync.vhd    ;         ;
+; Datapath.vhd                     ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd      ;         ;
+; FSM_clock.vhd                    ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/FSM_clock.vhd     ;         ;
+; Controle.vhd                     ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd      ;         ;
+; Led.vhd                          ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd           ;         ;
+; DecodBCD.vhd                     ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd      ;         ;
+; Sequencer.vhd                    ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Sequencer.vhd     ;         ;
+; Counter_round.vhd                ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_round.vhd ;         ;
+; Counter_time.vhd                 ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_time.vhd  ;         ;
+; Counter_point.vhd                ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point.vhd ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 0              ;
-;                                             ;                ;
-; Combinational ALUT usage for logic          ; 0              ;
-;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 0              ;
-;     -- 5 input functions                    ; 0              ;
-;     -- 4 input functions                    ; 0              ;
-;     -- <=3 input functions                  ; 0              ;
-;                                             ;                ;
-; Dedicated logic registers                   ; 0              ;
-;                                             ;                ;
-; I/O pins                                    ; 59             ;
-;                                             ;                ;
-; Total DSP Blocks                            ; 0              ;
-;                                             ;                ;
-; Maximum fan-out node                        ; LEDR[0]~output ;
-; Maximum fan-out                             ; 1              ;
-; Total fan-out                               ; 59             ;
-; Average fan-out                             ; 0.50           ;
-+---------------------------------------------+----------------+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                      ;
++---------------------------------------------+------------------------------------+
+; Resource                                    ; Usage                              ;
++---------------------------------------------+------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 106                                ;
+;                                             ;                                    ;
+; Combinational ALUT usage for logic          ; 189                                ;
+;     -- 7 input functions                    ; 0                                  ;
+;     -- 6 input functions                    ; 21                                 ;
+;     -- 5 input functions                    ; 22                                 ;
+;     -- 4 input functions                    ; 7                                  ;
+;     -- <=3 input functions                  ; 139                                ;
+;                                             ;                                    ;
+; Dedicated logic registers                   ; 144                                ;
+;                                             ;                                    ;
+; I/O pins                                    ; 59                                 ;
+;                                             ;                                    ;
+; Total DSP Blocks                            ; 0                                  ;
+;                                             ;                                    ;
+; Maximum fan-out node                        ; Controle:CONTROL|EstadoAtual.Start ;
+; Maximum fan-out                             ; 132                                ;
+; Total fan-out                               ; 1307                               ;
+; Average fan-out                             ; 2.90                               ;
++---------------------------------------------+------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |Topo                      ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 59   ; 0            ; |Topo               ; Topo        ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                        ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                    ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------+--------------+--------------+
+; |Topo                      ; 189 (0)             ; 144 (0)                   ; 0                 ; 0          ; 59   ; 0            ; |Topo                                  ; Topo         ; work         ;
+;    |ButtonSync:BT|         ; 6 (6)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|ButtonSync:BT                    ; ButtonSync   ; work         ;
+;    |Controle:CONTROL|      ; 6 (6)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Controle:CONTROL                 ; Controle     ; work         ;
+;    |Datapath:DTPATH|       ; 177 (3)             ; 134 (1)                   ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH                  ; Datapath     ; work         ;
+;       |Counter_time:CT1|   ; 4 (4)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Counter_time:CT1 ; Counter_time ; work         ;
+;       |FSM_clock:C1|       ; 137 (137)           ; 116 (116)                 ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|FSM_clock:C1     ; FSM_clock    ; work         ;
+;       |Led:L1|             ; 15 (15)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Led:L1           ; Led          ; work         ;
+;       |Sequencer:S1|       ; 18 (18)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Sequencer:S1     ; Sequencer    ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -286,48 +307,138 @@ Encoding Type:  One-Hot
 +-------------------------+------------------------+----------------------+-------------------------+
 
 
-+----------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                               ;
-+-----------------------------------------+----------------------------------------+
-; Register name                           ; Reason for Removal                     ;
-+-----------------------------------------+----------------------------------------+
-; ButtonSync:BT|btn3state.SaidaAtiva      ; Lost fanout                            ;
-; ButtonSync:BT|btn3state.EsperaSoltar    ; Lost fanout                            ;
-; ButtonSync:BT|btn3state.EsperaApertar   ; Lost fanout                            ;
-; ButtonSync:BT|btn2state.EsperaSoltar    ; Lost fanout                            ;
-; ButtonSync:BT|btn1state.EsperaSoltar    ; Lost fanout                            ;
-; ButtonSync:BT|btn0state.EsperaSoltar    ; Lost fanout                            ;
-; Controle:CONTROL|EstadoAtual.Check      ; Lost fanout                            ;
-; ButtonSync:BT|btn2state.SaidaAtiva      ; Lost fanout                            ;
-; ButtonSync:BT|btn2state.EsperaApertar   ; Lost fanout                            ;
-; Controle:CONTROL|EstadoAtual.Next_Round ; Stuck at GND due to stuck port data_in ;
-; Controle:CONTROL|EstadoAtual.Wait_C     ; Stuck at GND due to stuck port data_in ;
-; Controle:CONTROL|EstadoAtual.Start      ; Lost fanout                            ;
-; Controle:CONTROL|EstadoAtual.Setup      ; Lost fanout                            ;
-; Controle:CONTROL|EstadoAtual.Play       ; Lost fanout                            ;
-; Controle:CONTROL|EstadoAtual.Result     ; Lost fanout                            ;
-; ButtonSync:BT|btn1state.EsperaApertar   ; Lost fanout                            ;
-; ButtonSync:BT|btn1state.SaidaAtiva      ; Lost fanout                            ;
-; ButtonSync:BT|btn0state.EsperaApertar   ; Lost fanout                            ;
-; ButtonSync:BT|btn0state.SaidaAtiva      ; Lost fanout                            ;
-; Total Number of Removed Registers = 19  ;                                        ;
-+-----------------------------------------+----------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                       ;
++-----------------------------------------------------+----------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal        ; Free of Timing Hazards ;
++-----------------------------------------------------+----------------------------+------------------------+
+; Datapath:DTPATH|Led:L1|HEX5[0]                      ; VCC                        ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[1]                      ; VCC                        ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[2]                      ; VCC                        ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[3]                      ; SW[1]                      ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[4]                      ; SW[1]                      ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[5]                      ; SW[1]                      ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[6]                      ; VCC                        ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[0]                      ; VCC                        ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[2]                      ; SW[1]                      ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[3]                      ; VCC                        ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[4]                      ; SW[1]                      ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[5]                      ; VCC                        ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[6]                      ; VCC                        ; yes                    ;
+; Controle:CONTROL|ProximoEstado.Start_300            ; Controle:CONTROL|Selector8 ; yes                    ;
+; Controle:CONTROL|ProximoEstado.Play_264             ; Controle:CONTROL|Selector8 ; yes                    ;
+; Datapath:DTPATH|Sequencer:S1|prox[0]                ; GND                        ; yes                    ;
+; Datapath:DTPATH|Sequencer:S1|prox[1]                ; GND                        ; yes                    ;
+; Datapath:DTPATH|Sequencer:S1|prox[3]                ; GND                        ; yes                    ;
+; Datapath:DTPATH|Sequencer:S1|prox[2]                ; GND                        ; yes                    ;
+; Controle:CONTROL|ProximoEstado.Setup_282            ; Controle:CONTROL|Selector8 ; yes                    ;
+; Controle:CONTROL|ProximoEstado.Result_228           ; Controle:CONTROL|Selector8 ; yes                    ;
+; Number of user-specified and inferred latches = 21  ;                            ;                        ;
++-----------------------------------------------------+----------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                    ;
-+-----------------------------------------+---------------------------+--------------------------------------------------------------------------+
-; Register name                           ; Reason for Removal        ; Registers Removed due to This Register                                   ;
-+-----------------------------------------+---------------------------+--------------------------------------------------------------------------+
-; Controle:CONTROL|EstadoAtual.Next_Round ; Stuck at GND              ; Controle:CONTROL|EstadoAtual.Wait_C, Controle:CONTROL|EstadoAtual.Setup, ;
-;                                         ; due to stuck port data_in ; Controle:CONTROL|EstadoAtual.Play, Controle:CONTROL|EstadoAtual.Result,  ;
-;                                         ;                           ; ButtonSync:BT|btn1state.SaidaAtiva                                       ;
-; ButtonSync:BT|btn3state.SaidaAtiva      ; Lost Fanouts              ; ButtonSync:BT|btn3state.EsperaApertar                                    ;
-; ButtonSync:BT|btn2state.EsperaSoltar    ; Lost Fanouts              ; ButtonSync:BT|btn2state.EsperaApertar                                    ;
-; ButtonSync:BT|btn1state.EsperaSoltar    ; Lost Fanouts              ; ButtonSync:BT|btn1state.EsperaApertar                                    ;
-; ButtonSync:BT|btn0state.EsperaSoltar    ; Lost Fanouts              ; ButtonSync:BT|btn0state.EsperaApertar                                    ;
-; Controle:CONTROL|EstadoAtual.Check      ; Lost Fanouts              ; ButtonSync:BT|btn0state.SaidaAtiva                                       ;
-+-----------------------------------------+---------------------------+--------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                               ;
++----------------------------------------------------+---------------------------------------------+
+; Register name                                      ; Reason for Removal                          ;
++----------------------------------------------------+---------------------------------------------+
+; Datapath:DTPATH|Counter_point:CP1|win              ; Stuck at GND due to stuck port clock_enable ;
+; Datapath:DTPATH|Counter_point:CP1|count[0..5]      ; Stuck at GND due to stuck port clear        ;
+; Datapath:DTPATH|Counter_point:CP1|U_Point[0..5]    ; Stuck at GND due to stuck port clear        ;
+; Datapath:DTPATH|Counter_point:CP0|win              ; Stuck at GND due to stuck port clock_enable ;
+; Datapath:DTPATH|Counter_point:CP0|count[0..5]      ; Stuck at GND due to stuck port clear        ;
+; Datapath:DTPATH|Counter_point:CP0|U_Point[0..5]    ; Stuck at GND due to stuck port clear        ;
+; Datapath:DTPATH|Counter_time:CT1|end_time          ; Stuck at VCC due to stuck port data_in      ;
+; Datapath:DTPATH|Counter_round:CR1|end_game         ; Stuck at VCC due to stuck port data_in      ;
+; Datapath:DTPATH|Level[1]                           ; Stuck at GND due to stuck port data_in      ;
+; Datapath:DTPATH|FSM_clock:C1|clock_saida4Hz        ; Lost fanout                                 ;
+; Datapath:DTPATH|FSM_clock:C1|contador4Hz[0..27]    ; Lost fanout                                 ;
+; ButtonSync:BT|btn3state.SaidaAtiva                 ; Lost fanout                                 ;
+; ButtonSync:BT|btn3state.EsperaSoltar               ; Lost fanout                                 ;
+; ButtonSync:BT|btn3state.EsperaApertar              ; Lost fanout                                 ;
+; ButtonSync:BT|btn2state.EsperaSoltar               ; Lost fanout                                 ;
+; ButtonSync:BT|btn1state.EsperaSoltar               ; Lost fanout                                 ;
+; ButtonSync:BT|btn0state.EsperaSoltar               ; Lost fanout                                 ;
+; Controle:CONTROL|EstadoAtual.Check                 ; Lost fanout                                 ;
+; Controle:CONTROL|EstadoAtual.Next_Round            ; Stuck at GND due to stuck port data_in      ;
+; Datapath:DTPATH|Counter_round:CR1|round[0..3]      ; Stuck at GND due to stuck port clock_enable ;
+; Datapath:DTPATH|Counter_round:CR1|next_round[0..3] ; Stuck at GND due to stuck port clock_enable ;
+; Controle:CONTROL|EstadoAtual.Wait_C                ; Stuck at GND due to stuck port data_in      ;
+; Total Number of Removed Registers = 75             ;                                             ;
++----------------------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                        ;
++--------------------------------------------+--------------------------------+----------------------------------------------------------------------+
+; Register name                              ; Reason for Removal             ; Registers Removed due to This Register                               ;
++--------------------------------------------+--------------------------------+----------------------------------------------------------------------+
+; Datapath:DTPATH|Counter_point:CP1|win      ; Stuck at GND                   ; Datapath:DTPATH|Counter_time:CT1|end_time, Datapath:DTPATH|Level[1], ;
+;                                            ; due to stuck port clock_enable ; Datapath:DTPATH|FSM_clock:C1|clock_saida4Hz,                         ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[25],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[23],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[22],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[21],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[20],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[19],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[18],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[17],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[16],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[15],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[14],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[13],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[12],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[11],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[10],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[9],                         ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[8],                         ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[7],                         ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[6],                         ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[5],                         ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[4],                         ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[3],                         ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[2],                         ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[1],                         ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[0],                         ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[26],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[27],                        ;
+;                                            ;                                ; Datapath:DTPATH|FSM_clock:C1|contador4Hz[24]                         ;
+; Controle:CONTROL|EstadoAtual.Next_Round    ; Stuck at GND                   ; Datapath:DTPATH|Counter_round:CR1|round[1],                          ;
+;                                            ; due to stuck port data_in      ; Datapath:DTPATH|Counter_round:CR1|round[0],                          ;
+;                                            ;                                ; Datapath:DTPATH|Counter_round:CR1|round[3],                          ;
+;                                            ;                                ; Datapath:DTPATH|Counter_round:CR1|round[2],                          ;
+;                                            ;                                ; Datapath:DTPATH|Counter_round:CR1|next_round[1],                     ;
+;                                            ;                                ; Datapath:DTPATH|Counter_round:CR1|next_round[0],                     ;
+;                                            ;                                ; Datapath:DTPATH|Counter_round:CR1|next_round[3],                     ;
+;                                            ;                                ; Datapath:DTPATH|Counter_round:CR1|next_round[2],                     ;
+;                                            ;                                ; Controle:CONTROL|EstadoAtual.Wait_C                                  ;
+; Datapath:DTPATH|Counter_point:CP1|count[0] ; Stuck at GND                   ; Datapath:DTPATH|Counter_point:CP1|U_Point[0]                         ;
+;                                            ; due to stuck port clear        ;                                                                      ;
+; Datapath:DTPATH|Counter_point:CP1|count[1] ; Stuck at GND                   ; Datapath:DTPATH|Counter_point:CP1|U_Point[1]                         ;
+;                                            ; due to stuck port clear        ;                                                                      ;
+; Datapath:DTPATH|Counter_point:CP1|count[2] ; Stuck at GND                   ; Datapath:DTPATH|Counter_point:CP1|U_Point[2]                         ;
+;                                            ; due to stuck port clear        ;                                                                      ;
+; Datapath:DTPATH|Counter_point:CP1|count[3] ; Stuck at GND                   ; Datapath:DTPATH|Counter_point:CP1|U_Point[3]                         ;
+;                                            ; due to stuck port clear        ;                                                                      ;
+; Datapath:DTPATH|Counter_point:CP1|count[4] ; Stuck at GND                   ; Datapath:DTPATH|Counter_point:CP1|U_Point[4]                         ;
+;                                            ; due to stuck port clear        ;                                                                      ;
+; Datapath:DTPATH|Counter_point:CP1|count[5] ; Stuck at GND                   ; Datapath:DTPATH|Counter_point:CP1|U_Point[5]                         ;
+;                                            ; due to stuck port clear        ;                                                                      ;
+; Datapath:DTPATH|Counter_point:CP0|count[0] ; Stuck at GND                   ; Datapath:DTPATH|Counter_point:CP0|U_Point[0]                         ;
+;                                            ; due to stuck port clear        ;                                                                      ;
+; Datapath:DTPATH|Counter_point:CP0|count[1] ; Stuck at GND                   ; Datapath:DTPATH|Counter_point:CP0|U_Point[1]                         ;
+;                                            ; due to stuck port clear        ;                                                                      ;
+; Datapath:DTPATH|Counter_point:CP0|count[2] ; Stuck at GND                   ; Datapath:DTPATH|Counter_point:CP0|U_Point[2]                         ;
+;                                            ; due to stuck port clear        ;                                                                      ;
+; Datapath:DTPATH|Counter_point:CP0|count[3] ; Stuck at GND                   ; Datapath:DTPATH|Counter_point:CP0|U_Point[3]                         ;
+;                                            ; due to stuck port clear        ;                                                                      ;
+; Datapath:DTPATH|Counter_point:CP0|count[4] ; Stuck at GND                   ; Datapath:DTPATH|Counter_point:CP0|U_Point[4]                         ;
+;                                            ; due to stuck port clear        ;                                                                      ;
+; Datapath:DTPATH|Counter_point:CP0|count[5] ; Stuck at GND                   ; Datapath:DTPATH|Counter_point:CP0|U_Point[5]                         ;
+;                                            ; due to stuck port clear        ;                                                                      ;
+; ButtonSync:BT|btn3state.SaidaAtiva         ; Lost Fanouts                   ; ButtonSync:BT|btn3state.EsperaApertar                                ;
++--------------------------------------------+--------------------------------+----------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -335,14 +446,53 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 144   ;
+; Number of registers using Synchronous Clear  ; 112   ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 134   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 129   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |Topo|Datapath:DTPATH|Led:L1|HEX0[4]       ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Topo|Datapath:DTPATH|Led:L1|HEX0[5]       ;
+; 19:1               ; 2 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |Topo|Datapath:DTPATH|Sequencer:S1|prox[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "Datapath:DTPATH|Led:L1" ;
++-------------+-------+----------+-------------------+
+; Port        ; Type  ; Severity ; Details           ;
++-------------+-------+----------+-------------------+
+; win1[3..1]  ; Input ; Info     ; Stuck at GND      ;
+; level[3..2] ; Input ; Info     ; Stuck at GND      ;
++-------------+-------+----------+-------------------+
+
+
++---------------------------------------------------------------+
+; Port Connectivity Checks: "Datapath:DTPATH|Counter_point:CP1" ;
++-------+-------+----------+------------------------------------+
+; Port  ; Type  ; Severity ; Details                            ;
++-------+-------+----------+------------------------------------+
+; overf ; Input ; Info     ; Stuck at VCC                       ;
++-------+-------+----------+------------------------------------+
+
+
++---------------------------------------------------------------+
+; Port Connectivity Checks: "Datapath:DTPATH|Counter_point:CP0" ;
++-------+-------+----------+------------------------------------+
+; Port  ; Type  ; Severity ; Details                            ;
++-------+-------+----------+------------------------------------+
+; overf ; Input ; Info     ; Stuck at VCC                       ;
++-------+-------+----------+------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------+
@@ -359,13 +509,27 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
+; arriav_ff             ; 144                         ;
+;     CLR               ; 9                           ;
+;     ENA               ; 4                           ;
+;     ENA CLR           ; 13                          ;
+;     ENA CLR SCLR      ; 112                         ;
+;     plain             ; 6                           ;
+; arriav_lcell_comb     ; 192                         ;
+;     arith             ; 112                         ;
+;         1 data inputs ; 112                         ;
+;     normal            ; 80                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 13                          ;
+;         4 data inputs ; 7                           ;
+;         5 data inputs ; 22                          ;
+;         6 data inputs ; 21                          ;
 ; boundary_port         ; 59                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 3.70                        ;
+; Average LUT depth     ; 2.46                        ;
 +-----------------------+-----------------------------+
 
 
@@ -384,141 +548,194 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Jun 11 01:22:46 2019
+    Info: Processing started: Tue Jun 11 23:46:15 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Jogo -c Jogo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file Decod7seg.vhd
-    Info (12022): Found design unit 1: Decod7seg-decod File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Decod7seg.vhd Line: 10
-    Info (12023): Found entity 1: Decod7seg File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Decod7seg.vhd Line: 4
+    Info (12022): Found design unit 1: Decod7seg-decod File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 10
+    Info (12023): Found entity 1: Decod7seg File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file Topo.vhd
-    Info (12022): Found design unit 1: Topo-tp File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 21
-    Info (12023): Found entity 1: Topo File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 4
+    Info (12022): Found design unit 1: Topo-tp File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 21
+    Info (12023): Found entity 1: Topo File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file ButtonSync.vhd
-    Info (12022): Found design unit 1: ButtonSync-ButtonSyncImpl File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/ButtonSync.vhd Line: 15
-    Info (12023): Found entity 1: ButtonSync File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/ButtonSync.vhd Line: 6
+    Info (12022): Found design unit 1: ButtonSync-ButtonSyncImpl File: /home/josef/Documentos/Programacao/git/Blackjack-29/ButtonSync.vhd Line: 15
+    Info (12023): Found entity 1: ButtonSync File: /home/josef/Documentos/Programacao/git/Blackjack-29/ButtonSync.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file Datapath.vhd
-    Info (12022): Found design unit 1: Datapath-path File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 35
-    Info (12023): Found entity 1: Datapath File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 6
+    Info (12022): Found design unit 1: Datapath-path File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 35
+    Info (12023): Found entity 1: Datapath File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file FSM_clock.vhd
-    Info (12022): Found design unit 1: FSM_clock-topo_beh File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/FSM_clock.vhd Line: 13
-    Info (12023): Found entity 1: FSM_clock File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/FSM_clock.vhd Line: 5
+    Info (12022): Found design unit 1: FSM_clock-topo_beh File: /home/josef/Documentos/Programacao/git/Blackjack-29/FSM_clock.vhd Line: 17
+    Info (12023): Found entity 1: FSM_clock File: /home/josef/Documentos/Programacao/git/Blackjack-29/FSM_clock.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file Controle.vhd
-    Info (12022): Found design unit 1: Controle-control File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 26
-    Info (12023): Found entity 1: Controle File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 4
+    Info (12022): Found design unit 1: Controle-control File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 26
+    Info (12023): Found entity 1: Controle File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file Led.vhd
-    Info (12022): Found design unit 1: Led-led File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Led.vhd Line: 26
-    Info (12023): Found entity 1: Led File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Led.vhd Line: 4
+    Info (12022): Found design unit 1: Led-led File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 26
+    Info (12023): Found entity 1: Led File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file DecodBCD.vhd
-    Info (12022): Found design unit 1: DecodBCD-decodB File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/DecodBCD.vhd Line: 12
-    Info (12023): Found entity 1: DecodBCD File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/DecodBCD.vhd Line: 6
+    Info (12022): Found design unit 1: DecodBCD-decodB File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 12
+    Info (12023): Found entity 1: DecodBCD File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file Sequencer.vhd
+    Info (12022): Found design unit 1: Sequencer-seq File: /home/josef/Documentos/Programacao/git/Blackjack-29/Sequencer.vhd Line: 15
+    Info (12023): Found entity 1: Sequencer File: /home/josef/Documentos/Programacao/git/Blackjack-29/Sequencer.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file Counter_round.vhd
+    Info (12022): Found design unit 1: Counter_round-countR File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_round.vhd Line: 15
+    Info (12023): Found entity 1: Counter_round File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_round.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file Counter_time.vhd
+    Info (12022): Found design unit 1: Counter_time-countT File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_time.vhd Line: 15
+    Info (12023): Found entity 1: Counter_time File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_time.vhd Line: 6
+Warning (12019): Can't analyze file -- file Counter_point0.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file Counter_point.vhd
+    Info (12022): Found design unit 1: Counter_point-countP File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point.vhd Line: 18
+    Info (12023): Found entity 1: Counter_point File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point.vhd Line: 6
 Info (12127): Elaborating entity "Topo" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at Topo.vhd(26): object "bt3" assigned a value but never read File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 26
-Info (12128): Elaborating entity "ButtonSync" for hierarchy "ButtonSync:BT" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 89
-Info (12128): Elaborating entity "Controle" for hierarchy "Controle:CONTROL" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 90
-Warning (10492): VHDL Process Statement warning at Controle.vhd(77): signal "Stop" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 77
-Warning (10492): VHDL Process Statement warning at Controle.vhd(77): signal "end_time_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 77
-Warning (10492): VHDL Process Statement warning at Controle.vhd(79): signal "end_time_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 79
-Warning (10492): VHDL Process Statement warning at Controle.vhd(92): signal "overflow_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 92
-Warning (10492): VHDL Process Statement warning at Controle.vhd(92): signal "end_game_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 92
-Warning (10492): VHDL Process Statement warning at Controle.vhd(92): signal "win0_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 92
-Warning (10492): VHDL Process Statement warning at Controle.vhd(92): signal "win1_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 92
-Warning (10492): VHDL Process Statement warning at Controle.vhd(94): signal "overflow_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 94
-Warning (10492): VHDL Process Statement warning at Controle.vhd(94): signal "end_game_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 94
-Warning (10492): VHDL Process Statement warning at Controle.vhd(94): signal "win0_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 94
-Warning (10492): VHDL Process Statement warning at Controle.vhd(94): signal "win1_controle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 94
-Warning (10631): VHDL Process Statement warning at Controle.vhd(39): inferring latch(es) for signal or variable "ProximoEstado", which holds its previous value in one or more paths through the process File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
-Info (10041): Inferred latch for "ProximoEstado.Wait_C" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
-Info (10041): Inferred latch for "ProximoEstado.Next_Round" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
-Info (10041): Inferred latch for "ProximoEstado.Result" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
-Info (10041): Inferred latch for "ProximoEstado.Check" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
-Info (10041): Inferred latch for "ProximoEstado.Play" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
-Info (10041): Inferred latch for "ProximoEstado.Setup" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
-Info (10041): Inferred latch for "ProximoEstado.Start" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Controle.vhd Line: 39
-Info (12128): Elaborating entity "Datapath" for hierarchy "Datapath:DTPATH" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 91
-Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(19): used implicit default value for signal "overflow_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 19
-Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(20): used implicit default value for signal "end_game_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 20
-Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(21): used implicit default value for signal "end_time_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 21
-Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(22): used implicit default value for signal "win0_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 22
-Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(23): used implicit default value for signal "win1_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 23
-Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(25): used implicit default value for signal "LEDR_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 25
-Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(26): used implicit default value for signal "HEX5_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 26
-Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(27): used implicit default value for signal "HEX4_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 27
-Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(28): used implicit default value for signal "HEX3_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 28
-Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(29): used implicit default value for signal "HEX2_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 29
-Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(30): used implicit default value for signal "HEX1_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 30
-Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(31): used implicit default value for signal "HEX0_Datapath" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Datapath.vhd Line: 31
+Warning (10036): Verilog HDL or VHDL warning at Topo.vhd(26): object "bt3" assigned a value but never read File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 26
+Info (12128): Elaborating entity "ButtonSync" for hierarchy "ButtonSync:BT" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 89
+Info (12128): Elaborating entity "Controle" for hierarchy "Controle:CONTROL" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 90
+Warning (10492): VHDL Process Statement warning at Controle.vhd(77): signal "Stop" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 77
+Warning (10492): VHDL Process Statement warning at Controle.vhd(77): signal "end_time" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 77
+Warning (10492): VHDL Process Statement warning at Controle.vhd(79): signal "end_time" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 79
+Warning (10492): VHDL Process Statement warning at Controle.vhd(92): signal "overflow" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at Controle.vhd(92): signal "end_game" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at Controle.vhd(92): signal "win0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at Controle.vhd(92): signal "win1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at Controle.vhd(94): signal "overflow" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at Controle.vhd(94): signal "end_game" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at Controle.vhd(94): signal "win0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at Controle.vhd(94): signal "win1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 94
+Warning (10631): VHDL Process Statement warning at Controle.vhd(39): inferring latch(es) for signal or variable "ProximoEstado", which holds its previous value in one or more paths through the process File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Wait_C" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Next_Round" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Result" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Check" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Play" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Setup" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 39
+Info (10041): Inferred latch for "ProximoEstado.Start" at Controle.vhd(39) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 39
+Info (12128): Elaborating entity "Datapath" for hierarchy "Datapath:DTPATH" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 91
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhd(39): object "User" assigned a value but never read File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 39
+Info (10041): Inferred latch for "CLKHZ" at Datapath.vhd(139) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 139
+Info (12128): Elaborating entity "FSM_clock" for hierarchy "Datapath:DTPATH|FSM_clock:C1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 138
+Info (12128): Elaborating entity "Sequencer" for hierarchy "Datapath:DTPATH|Sequencer:S1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 145
+Info (10041): Inferred latch for "prox[0]" at Sequencer.vhd(36) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Sequencer.vhd Line: 36
+Info (10041): Inferred latch for "prox[1]" at Sequencer.vhd(36) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Sequencer.vhd Line: 36
+Info (10041): Inferred latch for "prox[2]" at Sequencer.vhd(36) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Sequencer.vhd Line: 36
+Info (10041): Inferred latch for "prox[3]" at Sequencer.vhd(36) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Sequencer.vhd Line: 36
+Info (12128): Elaborating entity "Counter_round" for hierarchy "Datapath:DTPATH|Counter_round:CR1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 148
+Info (12128): Elaborating entity "Counter_time" for hierarchy "Datapath:DTPATH|Counter_time:CT1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 152
+Info (12128): Elaborating entity "Counter_point" for hierarchy "Datapath:DTPATH|Counter_point:CP0" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at Counter_point.vhd(27): signal "HexSeq" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point.vhd Line: 27
+Info (12128): Elaborating entity "Led" for hierarchy "Datapath:DTPATH|Led:L1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 185
+Info (10041): Inferred latch for "HEX4[0]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
+Info (10041): Inferred latch for "HEX4[1]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
+Info (10041): Inferred latch for "HEX4[2]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
+Info (10041): Inferred latch for "HEX4[3]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
+Info (10041): Inferred latch for "HEX4[4]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
+Info (10041): Inferred latch for "HEX4[5]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
+Info (10041): Inferred latch for "HEX4[6]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
+Info (10041): Inferred latch for "HEX5[0]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
+Info (10041): Inferred latch for "HEX5[1]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
+Info (10041): Inferred latch for "HEX5[2]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
+Info (10041): Inferred latch for "HEX5[3]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
+Info (10041): Inferred latch for "HEX5[4]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
+Info (10041): Inferred latch for "HEX5[5]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
+Info (10041): Inferred latch for "HEX5[6]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
+Info (12128): Elaborating entity "DecodBCD" for hierarchy "Datapath:DTPATH|Led:L1|DecodBCD:U1BCD" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 52
+Info (10041): Inferred latch for "saidaMS[0]" at DecodBCD.vhd(52) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 52
+Info (10041): Inferred latch for "saidaMS[1]" at DecodBCD.vhd(52) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 52
+Info (10041): Inferred latch for "saidaMS[2]" at DecodBCD.vhd(52) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 52
+Info (10041): Inferred latch for "saidaMS[3]" at DecodBCD.vhd(52) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 52
+Info (10041): Inferred latch for "saidaLS[0]" at DecodBCD.vhd(16) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 16
+Info (10041): Inferred latch for "saidaLS[1]" at DecodBCD.vhd(16) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 16
+Info (10041): Inferred latch for "saidaLS[2]" at DecodBCD.vhd(16) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 16
+Info (10041): Inferred latch for "saidaLS[3]" at DecodBCD.vhd(16) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 16
+Info (12128): Elaborating entity "Decod7seg" for hierarchy "Datapath:DTPATH|Led:L1|Decod7seg:H1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 56
+Info (10041): Inferred latch for "saida[0]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Info (10041): Inferred latch for "saida[1]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Info (10041): Inferred latch for "saida[2]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Info (10041): Inferred latch for "saida[3]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Info (10041): Inferred latch for "saida[4]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Info (10041): Inferred latch for "saida[5]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Info (10041): Inferred latch for "saida[6]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:W1|saida[3]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L2|saida[5]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L2|saida[6]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L2|saida[5]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L2|saida[6]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L2|saida[2]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L2|saida[3]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L2|saida[4]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L1|saida[3]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L1|saida[5]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L1|saida[6]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L2|saida[2]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L2|saida[3]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L2|saida[4]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L1|saida[3]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L1|saida[5]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L1|saida[6]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L2|saida[0]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L2|saida[1]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L1|saida[0]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L1|saida[1]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L1|saida[2]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U2L1|saida[4]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L2|saida[0]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L2|saida[1]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L1|saida[0]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L1|saida[1]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L1|saida[2]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:U1L1|saida[4]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:W1|saida[0]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:W1|saida[5]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:W1|saida[6]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:W1|saida[2]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:W1|saida[4]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14026): LATCH primitive "Datapath:DTPATH|CLKHZ" is permanently enabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 37
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer Datapath:DTPATH|CLKHZ~0 File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 37
+    Warning (19017): Found clock multiplexer Datapath:DTPATH|CLKHZ~1 File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 37
+    Warning (19017): Found clock multiplexer Datapath:DTPATH|CLKHZ~2 File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 37
+Warning (13012): Latch Datapath:DTPATH|Led:L1|HEX5[3] has unsafe behavior File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal SW[1] File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 14
+Warning (13012): Latch Datapath:DTPATH|Led:L1|HEX5[4] has unsafe behavior File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal SW[1] File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 14
+Warning (13012): Latch Datapath:DTPATH|Led:L1|HEX5[5] has unsafe behavior File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal SW[1] File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 14
+Warning (13012): Latch Datapath:DTPATH|Led:L1|HEX4[2] has unsafe behavior File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal SW[1] File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 14
+Warning (13012): Latch Datapath:DTPATH|Led:L1|HEX4[4] has unsafe behavior File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal SW[1] File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 14
+Warning (13012): Latch Controle:CONTROL|ProximoEstado.Result_228 has unsafe behavior File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 39
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controle:CONTROL|EstadoAtual.Play File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 28
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 6
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
-    Warning (13410): Pin "HEX5[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
-    Warning (13410): Pin "HEX5[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 7
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
-    Warning (13410): Pin "HEX4[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 8
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 9
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 10
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 11
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
-    Warning (13410): Pin "HEX0[2]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
-    Warning (13410): Pin "HEX0[3]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
-    Warning (13410): Pin "HEX0[6]" is stuck at GND File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 12
-Info (17049): 17 registers lost all their fanouts during netlist optimizations.
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 6
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 6
+    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 8
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 9
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 9
+    Warning (13410): Pin "HEX1[0]" is stuck at VCC File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 11
+    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 11
+    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 11
+    Warning (13410): Pin "HEX0[0]" is stuck at VCC File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 12
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 36 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 7 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[0]" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 14
-    Warning (15610): No output dependent on input pin "SW[1]" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 14
-    Warning (15610): No output dependent on input pin "CLOCK_50" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 17
-    Warning (15610): No output dependent on input pin "KEY[3]" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 13
-    Warning (15610): No output dependent on input pin "KEY[2]" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 13
-    Warning (15610): No output dependent on input pin "KEY[1]" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 13
-    Warning (15610): No output dependent on input pin "KEY[0]" File: /home/josef/Documentos/Programacao/Projetos VHDL/Jogo/Topo.vhd Line: 13
-Info (21057): Implemented 59 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[3]" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 13
+Info (21057): Implemented 263 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
     Info (21059): Implemented 52 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 87 warnings
-    Info: Peak virtual memory: 1000 megabytes
-    Info: Processing ended: Tue Jun 11 01:23:09 2019
-    Info: Elapsed time: 00:00:23
-    Info: Total CPU time (on all processors): 00:00:45
+    Info (21061): Implemented 204 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 84 warnings
+    Info: Peak virtual memory: 1013 megabytes
+    Info: Processing ended: Tue Jun 11 23:46:35 2019
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:44
 
 

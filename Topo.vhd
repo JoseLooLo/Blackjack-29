@@ -34,31 +34,31 @@ end component;
 
 --Colocar o component do datapth
 component Datapath is port (
-	SW_Datapath: in std_logic_vector(1 downto 0);
-	BT2_Datapath: in std_logic;
+	SW: in std_logic_vector(1 downto 0);
+	BT2: in std_logic;
 	clock: in std_logic;
 	--Variaveis do controle
-	R1_Datapath: in std_logic;
-	R2_Datapath: in std_logic;
-	E1_Datapath: in std_logic;
-	E2_Datapath: in std_logic;
-	E3_Datapath: in std_logic;
-	E4_Datapath: in std_logic;
-	SEL_Datapath: in std_logic_vector(1 downto 0);
+	R1: in std_logic;
+	R2: in std_logic;
+	E1: in std_logic;
+	E2: in std_logic;
+	E3: in std_logic;
+	E4: in std_logic;
+	SEL: in std_logic_vector(1 downto 0);
 	--Variaveis para o controle
-	overflow_Datapath: out std_logic;
-	end_game_Datapath: out std_logic;
-	end_time_Datapath: out std_logic;
-	win0_Datapath: out std_logic;
-	win1_Datapath: out std_logic;
+	overflow: out std_logic;
+	end_game: out std_logic;
+	end_time: out std_logic;
+	win0: out std_logic;
+	win1: out std_logic;
 	--Variaveis para o Topo
-	LEDR_Datapath: out std_logic_vector(9 downto 0);
-	HEX5_Datapath: out std_logic_vector(6 downto 0);
-	HEX4_Datapath: out std_logic_vector(6 downto 0);
-	HEX3_Datapath: out std_logic_vector(6 downto 0);
-	HEX2_Datapath: out std_logic_vector(6 downto 0);
-	HEX1_Datapath: out std_logic_vector(6 downto 0);
-	HEX0_Datapath: out std_logic_vector(6 downto 0)
+	LEDR: out std_logic_vector(9 downto 0);
+	HEX5: out std_logic_vector(6 downto 0);
+	HEX4: out std_logic_vector(6 downto 0);
+	HEX3: out std_logic_vector(6 downto 0);
+	HEX2: out std_logic_vector(6 downto 0);
+	HEX1: out std_logic_vector(6 downto 0);
+	HEX0: out std_logic_vector(6 downto 0)
 	);
 end component;
 --Colocar o component do controle
@@ -68,19 +68,19 @@ component Controle is port (
 	Stop: in std_logic;  --Btn2
 	clock: in std_logic;
 	--Variaveis vindo do datapath
-	overflow_controle: in std_logic;
-	end_game_controle: in std_logic;
-	end_time_controle: in std_logic;
-	win0_controle: in std_logic;
-	win1_controle: in std_logic;
+	overflow: in std_logic;
+	end_game: in std_logic;
+	end_time: in std_logic;
+	win0: in std_logic;
+	win1: in std_logic;
 	--Variaveis para o datapath
-	R1_controle: out std_logic;
-	R2_controle: out std_logic;
-	E1_controle: out std_logic;
-	E2_controle: out std_logic;
-	E3_controle: out std_logic;
-	E4_controle: out std_logic;
-	SEL_controle: out std_logic_vector(1 downto 0)
+	R1: out std_logic;
+	R2: out std_logic;
+	E1: out std_logic;
+	E2: out std_logic;
+	E3: out std_logic;
+	E4: out std_logic;
+	SEL: out std_logic_vector(1 downto 0)
 	);
 end component;
 
