@@ -90,5 +90,4 @@ BT: ButtonSync port map (KEY(0), KEY(1), KEY(2), KEY(3), CLOCK_50, bt0, bt1, bt2
 CONTROL: Controle port map (bt1, bt0, bt2, CLOCK_50, overflow, end_game, end_time, win0, win1, R1, R2, E1, E2, E3, E4, SEL);
 DTPATH: Datapath port map (SW, bt2, CLOCK_50, R1, R2, E1, E2, E3, E4, SEL, overflow, end_game, end_time, win0, win1, LEDR, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0);
 
-
 end tp;

@@ -50,6 +50,8 @@ Begin
 				E4 <= '0';
 				if Enter = '0' then
 					ProximoEstado <= Setup;
+				else
+					ProximoEstado <= Start;
 				end if;
 				
 			when Setup =>
@@ -63,6 +65,8 @@ Begin
 				E4 <= '0';
 				if Enter = '0' then
 					ProximoEstado <= Play;
+				else
+					ProximoEstado <= Setup;
 				end if;
 			
 			when Play =>
@@ -78,6 +82,8 @@ Begin
 					ProximoEstado <= Check;
 				elsif end_time= '1' then
 					ProximoEstado <= Result;
+				else
+					ProximoEstado <= Play;
 				end if;
 				
 			when Check =>
@@ -93,6 +99,8 @@ Begin
 					ProximoEstado <= Next_Round;
 				elsif overflow = '1' or end_game = '1' or win0 = '1' or win1 = '1' then
 					ProximoEstado <= Result;
+				else
+					ProximoEstado <= Check;
 				end if;
 				
 			when Next_Round =>
@@ -117,6 +125,8 @@ Begin
 				E4 <= '0';
 				if Enter = '0' then
 					ProximoEstado <= Play;
+				else
+					ProximoEstado <= Wait_C;
 				end if;
 				
 			when Result =>
@@ -130,6 +140,8 @@ Begin
 				E4 <= '0';
 				if Enter = '0' then
 					ProximoEstado <= Start;
+				else
+					ProximoEstado <= Result;
 				end if;
 				
 		end case;

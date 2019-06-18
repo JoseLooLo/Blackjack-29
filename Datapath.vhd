@@ -182,6 +182,6 @@ overflow <= OverF0 or OverF1;
 --LEDS
 led_u0_point <= U0_Point(4 downto 0);
 led_u1_point <= U1_Point(4 downto 0);
-L1: Led port map (SW, Time_DP, HEXSEQ, Round, "000"&win1_led, "00"&Level, led_u0_point, led_u1_point, LEDR, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0);
+L1: Led port map (SEL, Time_DP, HEXSEQ, Round, "000"&win1_led, "00"&Level, led_u0_point, led_u1_point, LEDR, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0);
 
 end path;
