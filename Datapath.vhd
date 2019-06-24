@@ -121,7 +121,7 @@ component Counter_point is port (
 	);
 end component;
 
-begin
+Begin
 
 --Registrador Level | ele eh apenas ativo durante o estado Setup (2)
 process (R1, E2, clock)

@@ -1,5 +1,5 @@
 Analysis & Elaboration report for Jogo
-Tue Jun 18 00:36:44 2019
+Sat Jun 22 15:58:05 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,7 +13,8 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Port Connectivity Checks: "Datapath:DTPATH|Led:L1"
   6. Port Connectivity Checks: "Datapath:DTPATH|Counter_point:CP1"
   7. Port Connectivity Checks: "Datapath:DTPATH|Counter_point:CP0"
-  8. Analysis & Elaboration Messages
+  8. Port Connectivity Checks: "ButtonSync:BT"
+  9. Analysis & Elaboration Messages
 
 
 
@@ -39,7 +40,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                              ;
 +-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Tue Jun 18 00:36:44 2019       ;
+; Analysis & Elaboration Status ; Successful - Sat Jun 22 15:58:05 2019       ;
 ; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                 ; Jogo                                        ;
 ; Top-level Entity Name         ; Topo                                        ;
@@ -185,13 +186,22 @@ refer to the applicable agreement for further details.
 +-------+-------+----------+------------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ButtonSync:BT"                                                                      ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; btn3 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +---------------------------------+
 ; Analysis & Elaboration Messages ;
 +---------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Jun 18 00:36:22 2019
+    Info: Processing started: Sat Jun 22 15:57:50 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Jogo -c Jogo --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -232,14 +242,13 @@ Warning (12019): Can't analyze file -- file Counter_point0.vhd is missing
 Info (12021): Found 2 design units, including 1 entities, in source file Counter_point.vhd
     Info (12022): Found design unit 1: Counter_point-countP File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point.vhd Line: 18
     Info (12023): Found entity 1: Counter_point File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file moore.vhd
-    Info (12022): Found design unit 1: moore-a File: /home/josef/Documentos/Programacao/git/Blackjack-29/moore.vhd Line: 26
-    Info (12023): Found entity 1: moore File: /home/josef/Documentos/Programacao/git/Blackjack-29/moore.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file DecodLED.vhd
+    Info (12022): Found design unit 1: DecodLED-decodL File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 10
+    Info (12023): Found entity 1: DecodLED File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 4
 Info (12127): Elaborating entity "Topo" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at Topo.vhd(26): used implicit default value for signal "bt0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 26
-Warning (10541): VHDL Signal Declaration warning at Topo.vhd(26): used implicit default value for signal "bt1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 26
-Warning (10541): VHDL Signal Declaration warning at Topo.vhd(26): used implicit default value for signal "bt2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 26
-Info (12128): Elaborating entity "Controle" for hierarchy "Controle:CONTROL" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 114
+Warning (10036): Verilog HDL or VHDL warning at Topo.vhd(26): object "bt3" assigned a value but never read File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 26
+Info (12128): Elaborating entity "ButtonSync" for hierarchy "ButtonSync:BT" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 89
+Info (12128): Elaborating entity "Controle" for hierarchy "Controle:CONTROL" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 90
 Warning (10492): VHDL Process Statement warning at Controle.vhd(81): signal "Stop" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 81
 Warning (10492): VHDL Process Statement warning at Controle.vhd(81): signal "end_time" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 81
 Warning (10492): VHDL Process Statement warning at Controle.vhd(83): signal "end_time" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 83
@@ -251,7 +260,7 @@ Warning (10492): VHDL Process Statement warning at Controle.vhd(100): signal "ov
 Warning (10492): VHDL Process Statement warning at Controle.vhd(100): signal "end_game" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 100
 Warning (10492): VHDL Process Statement warning at Controle.vhd(100): signal "win0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 100
 Warning (10492): VHDL Process Statement warning at Controle.vhd(100): signal "win1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 100
-Info (12128): Elaborating entity "Datapath" for hierarchy "Datapath:DTPATH" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 115
+Info (12128): Elaborating entity "Datapath" for hierarchy "Datapath:DTPATH" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 91
 Warning (10036): Verilog HDL or VHDL warning at Datapath.vhd(39): object "User" assigned a value but never read File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 39
 Info (10041): Inferred latch for "CLKHZ" at Datapath.vhd(139) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 139
 Info (12128): Elaborating entity "FSM_clock" for hierarchy "Datapath:DTPATH|FSM_clock:C1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 138
@@ -265,21 +274,21 @@ Info (12128): Elaborating entity "Counter_time" for hierarchy "Datapath:DTPATH|C
 Info (12128): Elaborating entity "Counter_point" for hierarchy "Datapath:DTPATH|Counter_point:CP0" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 155
 Warning (10492): VHDL Process Statement warning at Counter_point.vhd(27): signal "HexSeq" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point.vhd Line: 27
 Info (12128): Elaborating entity "Led" for hierarchy "Datapath:DTPATH|Led:L1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 185
-Info (10041): Inferred latch for "HEX4[0]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
-Info (10041): Inferred latch for "HEX4[1]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
-Info (10041): Inferred latch for "HEX4[2]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
-Info (10041): Inferred latch for "HEX4[3]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
-Info (10041): Inferred latch for "HEX4[4]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
-Info (10041): Inferred latch for "HEX4[5]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
-Info (10041): Inferred latch for "HEX4[6]" at Led.vhd(74) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 74
-Info (10041): Inferred latch for "HEX5[0]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
-Info (10041): Inferred latch for "HEX5[1]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
-Info (10041): Inferred latch for "HEX5[2]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
-Info (10041): Inferred latch for "HEX5[3]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
-Info (10041): Inferred latch for "HEX5[4]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
-Info (10041): Inferred latch for "HEX5[5]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
-Info (10041): Inferred latch for "HEX5[6]" at Led.vhd(69) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 69
-Info (12128): Elaborating entity "DecodBCD" for hierarchy "Datapath:DTPATH|Led:L1|DecodBCD:U1BCD" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 52
+Info (10041): Inferred latch for "HEX4[0]" at Led.vhd(80) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 80
+Info (10041): Inferred latch for "HEX4[1]" at Led.vhd(80) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 80
+Info (10041): Inferred latch for "HEX4[2]" at Led.vhd(80) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 80
+Info (10041): Inferred latch for "HEX4[3]" at Led.vhd(80) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 80
+Info (10041): Inferred latch for "HEX4[4]" at Led.vhd(80) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 80
+Info (10041): Inferred latch for "HEX4[5]" at Led.vhd(80) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 80
+Info (10041): Inferred latch for "HEX4[6]" at Led.vhd(80) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 80
+Info (10041): Inferred latch for "HEX5[0]" at Led.vhd(75) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 75
+Info (10041): Inferred latch for "HEX5[1]" at Led.vhd(75) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 75
+Info (10041): Inferred latch for "HEX5[2]" at Led.vhd(75) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 75
+Info (10041): Inferred latch for "HEX5[3]" at Led.vhd(75) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 75
+Info (10041): Inferred latch for "HEX5[4]" at Led.vhd(75) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 75
+Info (10041): Inferred latch for "HEX5[5]" at Led.vhd(75) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 75
+Info (10041): Inferred latch for "HEX5[6]" at Led.vhd(75) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 75
+Info (12128): Elaborating entity "DecodBCD" for hierarchy "Datapath:DTPATH|Led:L1|DecodBCD:U1BCD" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 58
 Info (10041): Inferred latch for "saidaMS[0]" at DecodBCD.vhd(52) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 52
 Info (10041): Inferred latch for "saidaMS[1]" at DecodBCD.vhd(52) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 52
 Info (10041): Inferred latch for "saidaMS[2]" at DecodBCD.vhd(52) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 52
@@ -288,7 +297,7 @@ Info (10041): Inferred latch for "saidaLS[0]" at DecodBCD.vhd(16) File: /home/jo
 Info (10041): Inferred latch for "saidaLS[1]" at DecodBCD.vhd(16) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 16
 Info (10041): Inferred latch for "saidaLS[2]" at DecodBCD.vhd(16) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 16
 Info (10041): Inferred latch for "saidaLS[3]" at DecodBCD.vhd(16) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd Line: 16
-Info (12128): Elaborating entity "Decod7seg" for hierarchy "Datapath:DTPATH|Led:L1|Decod7seg:H1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 56
+Info (12128): Elaborating entity "Decod7seg" for hierarchy "Datapath:DTPATH|Led:L1|Decod7seg:H1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 62
 Info (10041): Inferred latch for "saida[0]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
 Info (10041): Inferred latch for "saida[1]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
 Info (10041): Inferred latch for "saida[2]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
@@ -296,10 +305,46 @@ Info (10041): Inferred latch for "saida[3]" at Decod7seg.vhd(12) File: /home/jos
 Info (10041): Inferred latch for "saida[4]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
 Info (10041): Inferred latch for "saida[5]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
 Info (10041): Inferred latch for "saida[6]" at Decod7seg.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 18 warnings
-    Info: Peak virtual memory: 1309 megabytes
-    Info: Processing ended: Tue Jun 18 00:36:44 2019
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:46
+Info (12128): Elaborating entity "DecodLED" for hierarchy "Datapath:DTPATH|Led:L1|DecodLED:LE1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 72
+Info (10041): Inferred latch for "saida[0]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
+Info (10041): Inferred latch for "saida[1]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
+Info (10041): Inferred latch for "saida[2]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
+Info (10041): Inferred latch for "saida[3]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
+Info (10041): Inferred latch for "saida[4]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
+Info (10041): Inferred latch for "saida[5]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
+Info (10041): Inferred latch for "saida[6]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
+Info (10041): Inferred latch for "saida[7]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
+Info (10041): Inferred latch for "saida[8]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
+Info (10041): Inferred latch for "saida[9]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
+Warning (20013): Ignored 24 assignments for entity "ghrd_top" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity ghrd_top -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity ghrd_top -section_id Top was ignored
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 1311 megabytes
+    Info: Processing ended: Sat Jun 22 15:58:05 2019
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:39
 
 

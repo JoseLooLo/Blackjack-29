@@ -17,4 +17,5 @@ vcom -93 -work work {/home/josef/Documentos/Programacao/git/Blackjack-29/Sequenc
 vcom -93 -work work {/home/josef/Documentos/Programacao/git/Blackjack-29/Counter_round.vhd}
 vcom -93 -work work {/home/josef/Documentos/Programacao/git/Blackjack-29/Counter_time.vhd}
 vcom -93 -work work {/home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point.vhd}
+vcom -93 -work work {/home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd}
 

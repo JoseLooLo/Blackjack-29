@@ -46,6 +46,12 @@ architecture led of Led is
 		saida: out std_logic_vector(7 downto 0)
 		);
 	end component;
+	
+	component DecodLED is port (
+		valor: in std_logic_vector(3 downto 0);
+		saida: out std_logic_vector(9 downto 0)
+		);
+	end component;
 
 Begin
 	--Transforma as entradas BCD em valores validos para HEX
@@ -63,7 +69,7 @@ Begin
 	U2L2: Decod7seg port map (U1_PointBCD(3 downto 0), U1_PointLED_2);
 
 	--Atualiza o LEDR com o tempo
-	LEDR <= "000000"&Time_Led;
+	LE1: DecodLED port map (Time_Led, LEDR);
 	
 	--Atualiza os HEX
 	HEX5 <= "1111111" when SEL = "00" else
