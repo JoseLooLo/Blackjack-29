@@ -1,5 +1,5 @@
-Analysis & Elaboration report for Jogo
-Sat Jun 22 15:58:05 2019
+Analysis & Synthesis report for Jogo
+Tue Jun 25 15:24:38 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -7,14 +7,27 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration Settings
-  5. Port Connectivity Checks: "Datapath:DTPATH|Led:L1"
-  6. Port Connectivity Checks: "Datapath:DTPATH|Counter_point:CP1"
-  7. Port Connectivity Checks: "Datapath:DTPATH|Counter_point:CP0"
-  8. Port Connectivity Checks: "ButtonSync:BT"
-  9. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Topo|Controle:CONTROL|EstadoAtual
+  9. State Machine - |Topo|ButtonSync:BT|btn3state
+ 10. State Machine - |Topo|ButtonSync:BT|btn2state
+ 11. State Machine - |Topo|ButtonSync:BT|btn1state
+ 12. State Machine - |Topo|ButtonSync:BT|btn0state
+ 13. User-Specified and Inferred Latches
+ 14. Registers Removed During Synthesis
+ 15. Removed Registers Triggering Further Register Optimizations
+ 16. General Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Port Connectivity Checks: "Datapath:DTPATH|Led:L1"
+ 19. Port Connectivity Checks: "ButtonSync:BT"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -37,42 +50,31 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                              ;
-+-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Sat Jun 22 15:58:05 2019       ;
-; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name                 ; Jogo                                        ;
-; Top-level Entity Name         ; Topo                                        ;
-; Family                        ; Cyclone V                                   ;
-; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
-; Total registers               ; N/A until Partition Merge                   ;
-; Total pins                    ; N/A until Partition Merge                   ;
-; Total virtual pins            ; N/A until Partition Merge                   ;
-; Total block memory bits       ; N/A until Partition Merge                   ;
-; Total PLLs                    ; N/A until Partition Merge                   ;
-; Total DLLs                    ; N/A until Partition Merge                   ;
-+-------------------------------+---------------------------------------------+
-
-
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Jun 25 15:24:38 2019       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; Jogo                                        ;
+; Top-level Entity Name           ; Topo                                        ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 193                                         ;
+; Total pins                      ; 59                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                                           ;
+; Analysis & Synthesis Settings                                                                                             ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
@@ -158,6 +160,258 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                  ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                           ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
+; Decod7seg.vhd                    ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd      ;         ;
+; Topo.vhd                         ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd           ;         ;
+; ButtonSync.vhd                   ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/ButtonSync.vhd     ;         ;
+; Datapath.vhd                     ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd       ;         ;
+; FSM_clock.vhd                    ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/FSM_clock.vhd      ;         ;
+; Controle.vhd                     ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd       ;         ;
+; Led.vhd                          ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd            ;         ;
+; DecodBCD.vhd                     ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/DecodBCD.vhd       ;         ;
+; Sequencer.vhd                    ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Sequencer.vhd      ;         ;
+; Counter_round.vhd                ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_round.vhd  ;         ;
+; Counter_time.vhd                 ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_time.vhd   ;         ;
+; Counter_point.vhd                ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point.vhd  ;         ;
+; DecodLED.vhd                     ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd       ;         ;
+; Counter_point1.vhd               ; yes             ; User VHDL File  ; /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point1.vhd ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                      ;
++---------------------------------------------+------------------------------------+
+; Resource                                    ; Usage                              ;
++---------------------------------------------+------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 195                                ;
+;                                             ;                                    ;
+; Combinational ALUT usage for logic          ; 345                                ;
+;     -- 7 input functions                    ; 0                                  ;
+;     -- 6 input functions                    ; 44                                 ;
+;     -- 5 input functions                    ; 35                                 ;
+;     -- 4 input functions                    ; 54                                 ;
+;     -- <=3 input functions                  ; 212                                ;
+;                                             ;                                    ;
+; Dedicated logic registers                   ; 193                                ;
+;                                             ;                                    ;
+; I/O pins                                    ; 59                                 ;
+;                                             ;                                    ;
+; Total DSP Blocks                            ; 0                                  ;
+;                                             ;                                    ;
+; Maximum fan-out node                        ; Controle:CONTROL|EstadoAtual.Start ;
+; Maximum fan-out                             ; 190                                ;
+; Total fan-out                               ; 2102                               ;
+; Average fan-out                             ; 3.20                               ;
++---------------------------------------------+------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                               ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                         ; Entity Name    ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------+----------------+--------------+
+; |Topo                      ; 345 (0)             ; 193 (0)                   ; 0                 ; 0          ; 59   ; 0            ; |Topo                                       ; Topo           ; work         ;
+;    |ButtonSync:BT|         ; 6 (6)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|ButtonSync:BT                         ; ButtonSync     ; work         ;
+;    |Controle:CONTROL|      ; 13 (13)             ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Controle:CONTROL                      ; Controle       ; work         ;
+;    |Datapath:DTPATH|       ; 326 (8)             ; 180 (2)                   ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH                       ; Datapath       ; work         ;
+;       |Counter_point1:CP0| ; 8 (8)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Counter_point1:CP0    ; Counter_point1 ; work         ;
+;       |Counter_point:CP1|  ; 8 (8)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Counter_point:CP1     ; Counter_point  ; work         ;
+;       |Counter_round:CR1|  ; 4 (4)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Counter_round:CR1     ; Counter_round  ; work         ;
+;       |Counter_time:CT1|   ; 4 (4)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Counter_time:CT1      ; Counter_time   ; work         ;
+;       |FSM_clock:C1|       ; 170 (170)           ; 145 (145)                 ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|FSM_clock:C1          ; FSM_clock      ; work         ;
+;       |Led:L1|             ; 106 (41)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Led:L1                ; Led            ; work         ;
+;          |Decod7seg:H1|    ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Led:L1|Decod7seg:H1   ; Decod7seg      ; work         ;
+;          |Decod7seg:L1|    ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Led:L1|Decod7seg:L1   ; Decod7seg      ; work         ;
+;          |Decod7seg:R1|    ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Led:L1|Decod7seg:R1   ; Decod7seg      ; work         ;
+;          |Decod7seg:U1L2|  ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Led:L1|Decod7seg:U1L2 ; Decod7seg      ; work         ;
+;          |Decod7seg:U2L2|  ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Led:L1|Decod7seg:U2L2 ; Decod7seg      ; work         ;
+;          |DecodBCD:U1BCD|  ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Led:L1|DecodBCD:U1BCD ; DecodBCD       ; work         ;
+;          |DecodBCD:U2BCD|  ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Led:L1|DecodBCD:U2BCD ; DecodBCD       ; work         ;
+;          |DecodLED:LE1|    ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Led:L1|DecodLED:LE1   ; DecodLED       ; work         ;
+;       |Sequencer:S1|       ; 18 (18)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |Topo|Datapath:DTPATH|Sequencer:S1          ; Sequencer      ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------+----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Topo|Controle:CONTROL|EstadoAtual                                                                                                                       ;
++------------------------+--------------------+------------------------+--------------------+-------------------+------------------+-------------------+-------------------+
+; Name                   ; EstadoAtual.Wait_C ; EstadoAtual.Next_Round ; EstadoAtual.Result ; EstadoAtual.Check ; EstadoAtual.Play ; EstadoAtual.Setup ; EstadoAtual.Start ;
++------------------------+--------------------+------------------------+--------------------+-------------------+------------------+-------------------+-------------------+
+; EstadoAtual.Start      ; 0                  ; 0                      ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ;
+; EstadoAtual.Setup      ; 0                  ; 0                      ; 0                  ; 0                 ; 0                ; 1                 ; 1                 ;
+; EstadoAtual.Play       ; 0                  ; 0                      ; 0                  ; 0                 ; 1                ; 0                 ; 1                 ;
+; EstadoAtual.Check      ; 0                  ; 0                      ; 0                  ; 1                 ; 0                ; 0                 ; 1                 ;
+; EstadoAtual.Result     ; 0                  ; 0                      ; 1                  ; 0                 ; 0                ; 0                 ; 1                 ;
+; EstadoAtual.Next_Round ; 0                  ; 1                      ; 0                  ; 0                 ; 0                ; 0                 ; 1                 ;
+; EstadoAtual.Wait_C     ; 1                  ; 0                      ; 0                  ; 0                 ; 0                ; 0                 ; 1                 ;
++------------------------+--------------------+------------------------+--------------------+-------------------+------------------+-------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |Topo|ButtonSync:BT|btn3state                                                     ;
++-------------------------+------------------------+----------------------+-------------------------+
+; Name                    ; btn3state.EsperaSoltar ; btn3state.SaidaAtiva ; btn3state.EsperaApertar ;
++-------------------------+------------------------+----------------------+-------------------------+
+; btn3state.EsperaApertar ; 0                      ; 0                    ; 0                       ;
+; btn3state.SaidaAtiva    ; 0                      ; 1                    ; 1                       ;
+; btn3state.EsperaSoltar  ; 1                      ; 0                    ; 1                       ;
++-------------------------+------------------------+----------------------+-------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |Topo|ButtonSync:BT|btn2state                                                     ;
++-------------------------+------------------------+----------------------+-------------------------+
+; Name                    ; btn2state.EsperaSoltar ; btn2state.SaidaAtiva ; btn2state.EsperaApertar ;
++-------------------------+------------------------+----------------------+-------------------------+
+; btn2state.EsperaApertar ; 0                      ; 0                    ; 0                       ;
+; btn2state.SaidaAtiva    ; 0                      ; 1                    ; 1                       ;
+; btn2state.EsperaSoltar  ; 1                      ; 0                    ; 1                       ;
++-------------------------+------------------------+----------------------+-------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |Topo|ButtonSync:BT|btn1state                                                     ;
++-------------------------+------------------------+----------------------+-------------------------+
+; Name                    ; btn1state.EsperaSoltar ; btn1state.SaidaAtiva ; btn1state.EsperaApertar ;
++-------------------------+------------------------+----------------------+-------------------------+
+; btn1state.EsperaApertar ; 0                      ; 0                    ; 0                       ;
+; btn1state.SaidaAtiva    ; 0                      ; 1                    ; 1                       ;
+; btn1state.EsperaSoltar  ; 1                      ; 0                    ; 1                       ;
++-------------------------+------------------------+----------------------+-------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |Topo|ButtonSync:BT|btn0state                                                     ;
++-------------------------+------------------------+----------------------+-------------------------+
+; Name                    ; btn0state.EsperaSoltar ; btn0state.SaidaAtiva ; btn0state.EsperaApertar ;
++-------------------------+------------------------+----------------------+-------------------------+
+; btn0state.EsperaApertar ; 0                      ; 0                    ; 0                       ;
+; btn0state.SaidaAtiva    ; 0                      ; 1                    ; 1                       ;
+; btn0state.EsperaSoltar  ; 1                      ; 0                    ; 1                       ;
++-------------------------+------------------------+----------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; Datapath:DTPATH|Led:L1|DecodLED:LE1|saida[0]        ; GND                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|DecodLED:LE1|saida[1]        ; GND                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|DecodLED:LE1|saida[2]        ; GND                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|DecodLED:LE1|saida[3]        ; GND                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|DecodLED:LE1|saida[4]        ; GND                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|DecodLED:LE1|saida[5]        ; GND                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|DecodLED:LE1|saida[6]        ; GND                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|DecodLED:LE1|saida[7]        ; GND                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|DecodLED:LE1|saida[8]        ; GND                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|DecodLED:LE1|saida[9]        ; GND                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[0]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[1]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[2]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[3]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[4]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[5]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX5[6]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[0]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[1]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[2]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[3]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[4]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[5]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Led:L1|HEX4[6]                      ; VCC                 ; yes                    ;
+; Datapath:DTPATH|Sequencer:S1|prox[0]                ; GND                 ; yes                    ;
+; Datapath:DTPATH|Sequencer:S1|prox[1]                ; GND                 ; yes                    ;
+; Datapath:DTPATH|Sequencer:S1|prox[2]                ; GND                 ; yes                    ;
+; Datapath:DTPATH|Sequencer:S1|prox[3]                ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 28  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; ButtonSync:BT|btn3state.SaidaAtiva    ; Lost fanout        ;
+; ButtonSync:BT|btn3state.EsperaSoltar  ; Lost fanout        ;
+; ButtonSync:BT|btn3state.EsperaApertar ; Lost fanout        ;
+; ButtonSync:BT|btn2state.EsperaSoltar  ; Lost fanout        ;
+; ButtonSync:BT|btn1state.EsperaSoltar  ; Lost fanout        ;
+; ButtonSync:BT|btn0state.EsperaSoltar  ; Lost fanout        ;
+; Total Number of Removed Registers = 6 ;                    ;
++---------------------------------------+--------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                      ;
++------------------------------------+--------------------+----------------------------------------+
+; Register name                      ; Reason for Removal ; Registers Removed due to This Register ;
++------------------------------------+--------------------+----------------------------------------+
+; ButtonSync:BT|btn3state.SaidaAtiva ; Lost Fanouts       ; ButtonSync:BT|btn3state.EsperaApertar  ;
++------------------------------------+--------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 193   ;
+; Number of registers using Synchronous Clear  ; 140   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 182   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 173   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Topo|Datapath:DTPATH|Led:L1|HEX3[6]                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Topo|Datapath:DTPATH|Led:L1|HEX1[6]                   ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |Topo|Datapath:DTPATH|Led:L1|HEX3[1]                   ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |Topo|Datapath:DTPATH|Led:L1|HEX1[3]                   ;
+; 32:1               ; 2 bits    ; 42 LEs        ; 24 LEs               ; 18 LEs                 ; No         ; |Topo|Datapath:DTPATH|Led:L1|DecodBCD:U1BCD|saidaLS[3] ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Topo|Datapath:DTPATH|Led:L1|HEX3[2]                   ;
+; 32:1               ; 2 bits    ; 42 LEs        ; 24 LEs               ; 18 LEs                 ; No         ; |Topo|Datapath:DTPATH|Led:L1|DecodBCD:U2BCD|saidaLS[3] ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Topo|Datapath:DTPATH|Led:L1|HEX1[2]                   ;
+; 19:1               ; 2 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |Topo|Datapath:DTPATH|Sequencer:S1|prox[0]             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+
+
 +----------------------------------------------------+
 ; Port Connectivity Checks: "Datapath:DTPATH|Led:L1" ;
 +-------------+-------+----------+-------------------+
@@ -166,24 +420,6 @@ refer to the applicable agreement for further details.
 ; win1[3..1]  ; Input ; Info     ; Stuck at GND      ;
 ; level[3..2] ; Input ; Info     ; Stuck at GND      ;
 +-------------+-------+----------+-------------------+
-
-
-+---------------------------------------------------------------+
-; Port Connectivity Checks: "Datapath:DTPATH|Counter_point:CP1" ;
-+-------+-------+----------+------------------------------------+
-; Port  ; Type  ; Severity ; Details                            ;
-+-------+-------+----------+------------------------------------+
-; overf ; Input ; Info     ; Stuck at VCC                       ;
-+-------+-------+----------+------------------------------------+
-
-
-+---------------------------------------------------------------+
-; Port Connectivity Checks: "Datapath:DTPATH|Counter_point:CP0" ;
-+-------+-------+----------+------------------------------------+
-; Port  ; Type  ; Severity ; Details                            ;
-+-------+-------+----------+------------------------------------+
-; overf ; Input ; Info     ; Stuck at VCC                       ;
-+-------+-------+----------+------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------+
@@ -195,14 +431,52 @@ refer to the applicable agreement for further details.
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 193                         ;
+;     CLR               ; 14                          ;
+;     ENA               ; 5                           ;
+;     ENA CLR           ; 28                          ;
+;     ENA CLR SCLR      ; 140                         ;
+;     plain             ; 6                           ;
+; arriav_lcell_comb     ; 348                         ;
+;     arith             ; 152                         ;
+;         1 data inputs ; 144                         ;
+;         2 data inputs ; 8                           ;
+;     normal            ; 196                         ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 36                          ;
+;         4 data inputs ; 54                          ;
+;         5 data inputs ; 35                          ;
+;         6 data inputs ; 44                          ;
+; boundary_port         ; 59                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.50                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
+Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sat Jun 22 15:57:50 2019
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Jogo -c Jogo --analysis_and_elaboration
+    Info: Processing started: Tue Jun 25 15:24:14 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Jogo -c Jogo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file Decod7seg.vhd
@@ -238,13 +512,15 @@ Info (12021): Found 2 design units, including 1 entities, in source file Counter
 Info (12021): Found 2 design units, including 1 entities, in source file Counter_time.vhd
     Info (12022): Found design unit 1: Counter_time-countT File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_time.vhd Line: 15
     Info (12023): Found entity 1: Counter_time File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_time.vhd Line: 6
-Warning (12019): Can't analyze file -- file Counter_point0.vhd is missing
 Info (12021): Found 2 design units, including 1 entities, in source file Counter_point.vhd
     Info (12022): Found design unit 1: Counter_point-countP File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point.vhd Line: 18
     Info (12023): Found entity 1: Counter_point File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file DecodLED.vhd
     Info (12022): Found design unit 1: DecodLED-decodL File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 10
     Info (12023): Found entity 1: DecodLED File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file Counter_point1.vhd
+    Info (12022): Found design unit 1: Counter_point1-countP File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point1.vhd Line: 18
+    Info (12023): Found entity 1: Counter_point1 File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point1.vhd Line: 6
 Info (12127): Elaborating entity "Topo" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at Topo.vhd(26): object "bt3" assigned a value but never read File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 26
 Info (12128): Elaborating entity "ButtonSync" for hierarchy "ButtonSync:BT" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 89
@@ -261,19 +537,20 @@ Warning (10492): VHDL Process Statement warning at Controle.vhd(100): signal "en
 Warning (10492): VHDL Process Statement warning at Controle.vhd(100): signal "win0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 100
 Warning (10492): VHDL Process Statement warning at Controle.vhd(100): signal "win1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Controle.vhd Line: 100
 Info (12128): Elaborating entity "Datapath" for hierarchy "Datapath:DTPATH" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 91
-Warning (10036): Verilog HDL or VHDL warning at Datapath.vhd(39): object "User" assigned a value but never read File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 39
-Info (10041): Inferred latch for "CLKHZ" at Datapath.vhd(139) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 139
-Info (12128): Elaborating entity "FSM_clock" for hierarchy "Datapath:DTPATH|FSM_clock:C1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 138
-Info (12128): Elaborating entity "Sequencer" for hierarchy "Datapath:DTPATH|Sequencer:S1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 145
+Info (10041): Inferred latch for "CLKHZ" at Datapath.vhd(151) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 151
+Info (12128): Elaborating entity "FSM_clock" for hierarchy "Datapath:DTPATH|FSM_clock:C1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 150
+Info (12128): Elaborating entity "Sequencer" for hierarchy "Datapath:DTPATH|Sequencer:S1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 157
 Info (10041): Inferred latch for "prox[0]" at Sequencer.vhd(36) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Sequencer.vhd Line: 36
 Info (10041): Inferred latch for "prox[1]" at Sequencer.vhd(36) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Sequencer.vhd Line: 36
 Info (10041): Inferred latch for "prox[2]" at Sequencer.vhd(36) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Sequencer.vhd Line: 36
 Info (10041): Inferred latch for "prox[3]" at Sequencer.vhd(36) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Sequencer.vhd Line: 36
-Info (12128): Elaborating entity "Counter_round" for hierarchy "Datapath:DTPATH|Counter_round:CR1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 148
-Info (12128): Elaborating entity "Counter_time" for hierarchy "Datapath:DTPATH|Counter_time:CT1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 152
-Info (12128): Elaborating entity "Counter_point" for hierarchy "Datapath:DTPATH|Counter_point:CP0" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 155
+Info (12128): Elaborating entity "Counter_round" for hierarchy "Datapath:DTPATH|Counter_round:CR1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 160
+Info (12128): Elaborating entity "Counter_time" for hierarchy "Datapath:DTPATH|Counter_time:CT1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 164
+Info (12128): Elaborating entity "Counter_point1" for hierarchy "Datapath:DTPATH|Counter_point1:CP0" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 167
+Warning (10492): VHDL Process Statement warning at Counter_point1.vhd(27): signal "HexSeq" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point1.vhd Line: 27
+Info (12128): Elaborating entity "Counter_point" for hierarchy "Datapath:DTPATH|Counter_point:CP1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 170
 Warning (10492): VHDL Process Statement warning at Counter_point.vhd(27): signal "HexSeq" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/josef/Documentos/Programacao/git/Blackjack-29/Counter_point.vhd Line: 27
-Info (12128): Elaborating entity "Led" for hierarchy "Datapath:DTPATH|Led:L1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 185
+Info (12128): Elaborating entity "Led" for hierarchy "Datapath:DTPATH|Led:L1" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 198
 Info (10041): Inferred latch for "HEX4[0]" at Led.vhd(80) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 80
 Info (10041): Inferred latch for "HEX4[1]" at Led.vhd(80) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 80
 Info (10041): Inferred latch for "HEX4[2]" at Led.vhd(80) File: /home/josef/Documentos/Programacao/git/Blackjack-29/Led.vhd Line: 80
@@ -316,6 +593,14 @@ Info (10041): Inferred latch for "saida[6]" at DecodLED.vhd(12) File: /home/jose
 Info (10041): Inferred latch for "saida[7]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
 Info (10041): Inferred latch for "saida[8]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
 Info (10041): Inferred latch for "saida[9]" at DecodLED.vhd(12) File: /home/josef/Documentos/Programacao/git/Blackjack-29/DecodLED.vhd Line: 12
+Warning (14025): LATCH primitive "Datapath:DTPATH|Led:L1|Decod7seg:W1|saida[6]" is permanently disabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Decod7seg.vhd Line: 12
+Warning (14026): LATCH primitive "Datapath:DTPATH|CLKHZ" is permanently enabled File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 37
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer Datapath:DTPATH|CLKHZ~0 File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 37
+    Warning (19017): Found clock multiplexer Datapath:DTPATH|CLKHZ~1 File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 37
+    Warning (19017): Found clock multiplexer Datapath:DTPATH|CLKHZ~2 File: /home/josef/Documentos/Programacao/git/Blackjack-29/Datapath.vhd Line: 37
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 24 assignments for entity "ghrd_top" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity ghrd_top -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity ghrd_top -section_id Top was ignored
@@ -341,10 +626,18 @@ Warning (20013): Ignored 24 assignments for entity "ghrd_top" -- entity does not
     Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity ghrd_top -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity ghrd_top -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity ghrd_top -section_id Top was ignored
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 41 warnings
-    Info: Peak virtual memory: 1311 megabytes
-    Info: Processing ended: Sat Jun 22 15:58:05 2019
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:39
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[3]" File: /home/josef/Documentos/Programacao/git/Blackjack-29/Topo.vhd Line: 13
+Info (21057): Implemented 415 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 52 output pins
+    Info (21061): Implemented 356 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 48 warnings
+    Info: Peak virtual memory: 1014 megabytes
+    Info: Processing ended: Tue Jun 25 15:24:38 2019
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:46
 
 

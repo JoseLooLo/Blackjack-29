@@ -9,13 +9,13 @@ end Decod7seg;
 
 architecture decod of Decod7seg is
 Begin
-	saida <= "1111111" when valor = "0000" else --0
+	saida <= "1000000" when valor = "0000" else --0
 				"1111001" when valor = "0001" else --1
 				"0100100" when valor = "0010" else --2
 				"0110000" when valor = "0011" else --3
 				"0011001" when valor = "0100" else --4
 				"0010010" when valor = "0101" else --5
-				"0000110" when valor = "0110" else --6
+				"0000010" when valor = "0110" else --6
 				"1111000" when valor = "0111" else --7
 				"0000000" when valor = "1000" else --8
 				"0010000" when valor = "1001" else --9

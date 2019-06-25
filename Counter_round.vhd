@@ -21,15 +21,20 @@ begin
 process(R1, E3, clock)
 begin
 	if R1 = '1' then
-		round <= "0000";
 		next_round <= "0000";
-	elsif clock'event and clock = '1' and E3 = '1' then
-		next_round <= next_round + 1;
-		round <= next_round;
+		end_game <= '0';
+	elsif clock'event and clock = '1' then
+		if E3 = '1' then
+			next_round <= next_round + 1;
+		end if;
 		if next_round = "1000" then
 			end_game <= '1';
+		else
+			end_game <= '0';
 		end if;
 	end if;
 end process;
+
+round <= next_round;
 
 end countR;

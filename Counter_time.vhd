@@ -21,15 +21,18 @@ begin
 process(R2, E4, clock)
 begin
 	if R2 = '1' then
-		time_ct <= "0000";
 		count_time <= "0000";
-	elsif clock'event and clock = '1' and E4 = '1' then
-		count_time <= count_time + 1;
-		time_ct <= count_time;
+		end_time <= '0';
+	elsif clock'event and clock = '1' then
+		if E4 = '1' then
+			count_time <= count_time + 1;
+		end if;
 		if count_time = "1010" then
 			end_time <= '1';
+		else
+			end_time <= '0';
 		end if;
 	end if;
 end process;
-
+time_ct <= count_time;
 end countT;

@@ -45,7 +45,7 @@ signal OverF0, OverF1: std_logic;
 signal Win_Point0, Win_Point1: std_logic;
 signal clock1Hz, clock2Hz, clock4Hz, clock10Hz: std_logic;
 signal win1_dp, win0_dp, win1_led: std_logic;
-signal signal_end_game: std_logic;
+signal signal_end_game, signal_end_time: std_logic;
 signal led_u0_point, led_u1_point: std_logic_vector(4 downto 0);
 
 component Led is port (
@@ -121,6 +121,18 @@ component Counter_point is port (
 	);
 end component;
 
+component Counter_point1 is port (
+	HexSeq: in std_logic_vector(3 downto 0);
+	R1: in std_logic;
+	OverF: in std_logic;
+	User: in std_logic;
+	E3: in std_logic;
+	clock: in std_logic;
+	win: out std_logic;
+	U_Point: out std_logic_vector(5 downto 0) 
+	);
+end component;
+
 Begin
 
 --Registrador Level | ele eh apenas ativo durante o estado Setup (2)
@@ -129,7 +141,7 @@ begin
 	if R1 = '1' then
 		Level <= "00";
 	elsif clock'event and clock = '1' and E2 = '1' then
-		Level <= SEL;
+		Level <= SW;
 	end if;
 end process;
 
@@ -149,13 +161,13 @@ CR1: Counter_round port map (R1, E3, clock, signal_end_game, Round);
 User <= Round(0);
 
 --Obtem a contagem de tempo e o end_time
-CT1: Counter_time port map (R2, E4, CLKT, end_time, Time_DP);
+CT1: Counter_time port map (R2, E4, CLKT, signal_end_time, Time_DP);
 
 --Contagem de pontos do player0
-CP0: Counter_point port map (HEXSEQ, R1, '1', OverF0, E3, clock, win0_dp, U0_Point);
+CP0: Counter_point1 port map (HEXSEQ, R1, OverF0, User, E3, clock, win0_dp, U0_Point);
 
 --Contagem de pontos do player1
-CP1: Counter_point port map (HEXSEQ, R1, '1', OverF1, E3, clock, win1_dp, U1_Point);
+CP1: Counter_point port map (HEXSEQ, R1, OverF1, User, E3, clock, win1_dp, U1_Point);
 
 --Verifica o overflow dos players
 OverF0 <= '1' when (U0_Point > "011101") else
@@ -170,11 +182,12 @@ Win_Point1 <= '1' when signal_end_game = '1' and (U1_Point > U0_Point) else
 					'0';
 
 end_game <= signal_end_game;
+end_time <= signal_end_time;
 
 --Verifica condiçao de vitoria
-win0 <= Win_Point0 or OverF1 or win0_dp;
-win1 <= Win_Point1 or OverF0 or win1_dp;
-win1_led <= Win_Point1 or OverF0 or win1_dp;
+win1 <= (not User and signal_end_time) or win_Point1 or OverF0 or win1_dp;
+win0 <= (User and signal_end_time) or win_Point0 or OverF1 or win0_dp;
+win1_led <= (not User and signal_end_time) or win_Point1 or OverF0 or win1_dp;
 			
 --Check se houve overflow
 overflow <= OverF0 or OverF1;
