@@ -24,7 +24,7 @@ begin
 	if R1 = '1' then
 		hexseq <= "0000";
 		count <= "00000";
-	elsif clock'event and clock = '1' and E4 = '1' then
+	elsif clock'event and clock = '1' and STOP = '0' and E4 = '1' then
 		hexseq <= prox;
 		count <= count + 1;
 		if count = "10100" then
